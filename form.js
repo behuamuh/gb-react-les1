@@ -22,6 +22,7 @@ function startForm(element) {
     button.onclick = function() {
         //console.log(input.value);
         let next = formGen.next(input.value);
+        input.value = '';
         if (!next.done && typeof next.value === 'string') {
             label.innerHTML = next.value;
         } else {
