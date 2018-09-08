@@ -40,6 +40,7 @@ class Manager extends Employee {
     addDeveloper(developer){
         if(developer && developer instanceof Developer){
             this.developers.push(developer);
+            developer.changeManager(this);
         }
     }
     deleteDeveloper(developer){
@@ -70,14 +71,17 @@ class Developer extends Employee {
         return `${super.displayInfo()}, менеджер - ${this.manager.name}`;
     }
 }
+let developer1 = new Developer('Vasy', 27, '09.04.91', 2000, 'Frontend');
+let developer2 = new Developer('Petya', 28, '16.05.90', 2000, 'Frontend');
+let developer3 = new Developer('Ivan', 37, '19.04.81', 2000, 'Frontend');
 
-let manager = new Manager();
-manager.addDeveloper(new Developer('1'));
-manager.addDeveloper(new Developer('2'));
-manager.addDeveloper(new Developer('3'));
+let manager = new Manager('Igor', 23, '06.02.95', 4000, 'Frontend');
+manager.addDeveloper(developer1);
+manager.addDeveloper(developer2);
+manager.addDeveloper(developer3);
 
-let developer = new Developer();
-developer.changeManager(manager);
 
 console.log(manager.displayInfo());
-console.log(developer.displayInfo());
+console.log(developer1.displayInfo());
+console.log(developer2.displayInfo());
+console.log(developer3.displayInfo());

@@ -4,6 +4,7 @@
 где вместо number подставляется число от 1 до 10, в итоге должно получиться 10 промисов. 
 Следует дождаться выполнения загрузки всеми промисами 
 и далее вывести массив загруженных данных. */
+
 const promisses = [];
 for (let i = 1; i < 11; i++){
     promisses.push(getUser('https://jsonplaceholder.typicode.com/users/' + i)
@@ -23,10 +24,10 @@ function getUser(url) {
             } else {
                 reject(xhr.statusText);
             }
-        }
+        };
         xhr.onerror = function(error) {
             reject(error);
-        }
+        };
         xhr.send();
     });
 }
